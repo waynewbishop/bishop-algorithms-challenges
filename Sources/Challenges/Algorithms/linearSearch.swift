@@ -10,8 +10,8 @@ import Foundation
 extension Array where Element: Comparable {
     
     /**
-     Linear search provides a basic idea as to how the efficiency of the algorithm is effected as
-     its input size grows. In this case, all collection values must be checked to find `evalue`.
+     Linear search provides a basic idea as to how the efficiency of the algorithm is effected as its
+     input size grows. In this case, all collection values must be checked to find `evalue`.
 
      - Parameter evalue: The value to find in the `Array` collection.
      - Returns: a `boolean` value indicating if `evalue` was found.

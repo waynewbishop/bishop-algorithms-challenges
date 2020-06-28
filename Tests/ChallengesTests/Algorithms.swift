@@ -16,6 +16,12 @@ class Algorithms: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
+    func testFibRec() {
+        let position = 10
+        print("the recursive total for position \(position) is: \(fibRec(position))")
+    }
+    
+    
     
     func testNumberOfCoins() throws {
         let count = numberOfCoins(56)
@@ -34,7 +40,7 @@ class Algorithms: XCTestCase {
     
     
     func testLinearSearch() throws {
-            
+      //TODO: add test code here..
     }
 
 

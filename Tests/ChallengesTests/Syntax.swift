@@ -15,21 +15,5 @@ class Syntax: XCTestCase {
     }
 
     
-   func  testProtocolAsType() {
-        
-        let blockchain = Blockchain()
-
-        //create a new peer
-        let peer = Peer()
-
-        //create a new miner
-        let miner = Miner()
-
-    
-        //now the list can accept two different types of objects.
-        blockchain.list.append(peer)
-        blockchain.list.append(miner)
-
-    }
 
 }

@@ -1,8 +1,8 @@
 //
-//  File.swift
-//  
+//  fibRec.swift
+//  Challenges
 //
-//  Created by Wayne Bishop on 6/27/20.
+//  Created by Wayne Bishop on 6/26/20.
 //
 
 import Foundation
@@ -17,15 +17,15 @@ import Foundation
  - Complexity: O(n) - linear time.
  */
 
-func fibRec(_ n: Int) -> Int {
-    print("fibRecursive called!")
+    func fibRec(_ n: Int) -> Int {
+        print("fibRecursive called!")
 
-    if n < 2 {
-        return n
-    } else {
-        return fibRec(n-1) + fibRec(n-2)
+        if n < 2 {
+            return n
+        } else {
+            return fibRec(n-1) + fibRec(n-2)
+        }
     }
-}
 
 
 
