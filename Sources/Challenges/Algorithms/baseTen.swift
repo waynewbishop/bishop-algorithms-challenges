@@ -18,7 +18,7 @@ extension LinkedList {
      - Complexity: O(n) - linear time.
      */
         
-      func baseTen() -> Int {
+     public func baseTen() -> Int {
 
         //trivial check
         guard head.tvalue != nil else {

@@ -17,7 +17,7 @@ import Foundation
  - Complexity: O(n) - linear time.
  */
 
-func numberOfCoins(_ totalprice: Int) -> Int {
+public func numberOfCoins(_ totalprice: Int) -> Int {
     
     //define the coin denomination
     let currency = [20, 5, 1]

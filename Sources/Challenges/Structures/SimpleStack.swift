@@ -14,24 +14,29 @@ import Foundation
  - Complexity: O(1) - constant time average time for all operations.
  */
 
-    struct SimpleStack <T> {
+public struct SimpleStack <T> {
 
       private var elements : [T] = [T]()
 
+    public init() {
+        //playground support
+    }
+    
        //the number of items
         var count: Int {
             return elements.count
         }
       
-      mutating func push(_ element: T) {
+    public mutating func push(_ element: T) {
           elements.append(element)
       }
 
-      mutating func pop() -> T? {
+    public mutating func pop() -> T? {
           return elements.popLast()
       }
 
-      func peek() -> T? {
+    public func peek() -> T? {
           return elements.last
       }
+    
     }

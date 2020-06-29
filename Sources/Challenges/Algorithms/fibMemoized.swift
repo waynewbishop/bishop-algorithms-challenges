@@ -19,7 +19,7 @@ extension Int {
      - Complexity: O(n) - linear time.
      */
 
-    mutating func fibMemoized() -> Int {
+    public mutating func fibMemoized() -> Int {
          
         //builds array sequence
         func fibSequence(_ sequence: Array<Int> = [0, 1]) -> Array<Int> {
@@ -54,5 +54,6 @@ extension Int {
         let answer: Int = results[results.endIndex - 1] + results[results.endIndex - 2]
         return answer
     }
+    
 }
 

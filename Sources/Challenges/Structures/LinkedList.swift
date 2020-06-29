@@ -46,7 +46,7 @@ import Foundation
       
         
       //reverse the order of a linked list
-     func reverse() {
+  public  func reverse() {
        
        //initial condition
        guard head.tvalue != nil else {

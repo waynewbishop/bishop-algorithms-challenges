@@ -18,7 +18,7 @@ extension Array where Element: Comparable {
      - Complexity: O(n) - linear time.
      */
     
-    func linearSearch(for evalue: Element) -> Bool {
+    public func linearSearch(for evalue: Element) -> Bool {
                 
         //check all possible values
         for number in self {

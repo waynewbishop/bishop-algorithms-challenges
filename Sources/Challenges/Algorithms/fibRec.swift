@@ -17,7 +17,7 @@ import Foundation
  - Complexity: O(n) - linear time.
  */
 
-    func fibRec(_ n: Int) -> Int {
+   public func fibRec(_ n: Int) -> Int {
         print("fibRecursive called!")
 
         if n < 2 {

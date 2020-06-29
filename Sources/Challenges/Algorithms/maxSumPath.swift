@@ -19,7 +19,7 @@ import Foundation
  - Complexity: O(n) - linear time.
  */
 
-func maxPathSum(using sequence: Array<Int>) -> Int {
+public func maxPathSum(using sequence: Array<Int>) -> Int {
     
     var max: Int = 0
     

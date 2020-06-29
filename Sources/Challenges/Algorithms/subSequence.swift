@@ -21,7 +21,7 @@ extension Array where Element: Comparable {
      - Complexity: O(n) - linear time.
      */
 
-    func subSequence(capacity: Int = 100) -> Int {
+    public func subSequence(capacity: Int = 100) -> Int {
             
         var buckets = Array<Int?>(repeatElement(nil, count: capacity))
         
