@@ -14,8 +14,13 @@ import Foundation
  - Complexity: O(n) - none
  */
 
-class Node <T> {
+public class Node <T> {
     
   var tvalue: T?
   var next: Node<T>?
+
+    public init() {
+        //playground support
+    }
+
 }

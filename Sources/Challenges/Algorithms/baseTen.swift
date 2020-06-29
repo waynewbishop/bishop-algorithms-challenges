@@ -17,7 +17,7 @@ extension LinkedList {
      - Returns: an Int` that represents the binary equilvalent.
      - Complexity: O(n) - linear time.
      */
-    
+        
       func baseTen() -> Int {
 
         //trivial check

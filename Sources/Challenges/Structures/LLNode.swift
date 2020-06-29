@@ -14,9 +14,15 @@ import Foundation
  - Complexity: O(n) - linear time.
  */
 
-class LLNode <T> {
 
-  var tvalue: T?
-  var previous: LLNode?
-  var next: LLNode?
+public class LLNode <T> {
+    
+   public var tvalue: T?
+   public var previous: LLNode?
+   public var next: LLNode?
+    
+    public init() {
+        
+    }
+
 }

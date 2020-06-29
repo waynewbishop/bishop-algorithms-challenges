@@ -13,12 +13,15 @@ import Foundation
  - Complexity: O(n) - linear time.
  */
 
-    class LinkedList <T>{
+   public class LinkedList <T>{
 
       var head = LLNode<T>()
+    
+        public init() {
+            //playgrounds support
+        }
 
-
-      func append(_ item: T) {
+     public func append(_ item: T) {
 
         guard head.tvalue != nil else {
           head.tvalue = item

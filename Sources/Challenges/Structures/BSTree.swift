@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+
+public class BSTree <T> {
+    
+    public init() {
+        
+    }
+    
+}
