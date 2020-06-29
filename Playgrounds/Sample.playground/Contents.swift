@@ -13,7 +13,8 @@
     let simpleStack = SimpleStack<Int>()
     let stack = Stack<Int>()
     let bsnode = BSNode<Int>()
-    
+    let priority = Priority<Int>()
+
 
 
 
