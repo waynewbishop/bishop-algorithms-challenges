@@ -8,10 +8,10 @@
 import Foundation
     
 
-      public class BSTree <T: Comparable> {
-        
+  public class BSTree <T: Comparable> {
+    
        public init() {
-         //playgrouhd support
+         //playground support
        }
 
           //represents the entire tree
@@ -125,7 +125,7 @@ import Foundation
 
        return false
 
-      } //end function
-    
+  } //end function
+        
 }
     

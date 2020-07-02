@@ -13,8 +13,19 @@ import XCTest
 class Algorithms: XCTestCase {
     
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        //add code here..
+        
     }
+    
+    
+    //test fibonacci sequence to
+    func testFibMemoized() {
+        let position = 4
+        
+        let result = position.fibMemoized()
+        print(result)
+    }
+    
     
     func testFibRec() {
         let position = 10

@@ -1,5 +1,5 @@
 //
-//  Palindrome.swift
+//  subSequence.swift
 //  Challenges
 //
 //  Created by Wayne Bishop on 6/27/20.
@@ -16,7 +16,7 @@ extension Array where Element: Comparable {
      such that elements in the subsequence are consecutive integers,
      the consecutive numbers can be in any order.
 
-     - Parameter totalprice: The person being greeted.
+     - Parameter capacity: The person being greeted.
      - Returns: The number of coins needed .
      - Complexity: O(n) - linear time.
      */

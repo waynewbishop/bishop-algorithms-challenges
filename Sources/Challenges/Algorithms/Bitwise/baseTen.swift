@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 extension LinkedList {
     
     /**
@@ -24,7 +25,7 @@ extension LinkedList {
         guard head.tvalue != nil else {
             return 0
         }
-
+        
         var current: LLNode? = head
 
         //establish stack
