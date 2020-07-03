@@ -16,9 +16,8 @@ extension Array where Element: Comparable {
      such that elements in the subsequence are consecutive integers,
      the consecutive numbers can be in any order.
 
-     - Parameter capacity: The person being greeted.
-     - Returns: The number of coins needed .
-     - Complexity: O(n) - linear time.
+     - Parameter capacity: The default initial capacity of the `hash table` data structure.
+     - Returns: The largest number of consecutive elements.
      */
 
     public func subSequence(capacity: Int = 100) -> Int {

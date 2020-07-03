@@ -22,6 +22,7 @@ struct ProgressView: View {
 PlaygroundPage.current.setLiveView(ProgressView())
 */
 
+
     let item = LLNode<Int>()
     let list = LinkedList<Int>()
 
@@ -41,7 +42,56 @@ PlaygroundPage.current.setLiveView(ProgressView())
     let priority = Priority<Int>()
 
 
+typealias AEClassifierResult = String
 
+import CoreML
+
+
+class Classifier {
+    
+    /*
+    note: AEClassifier is a model trained with csv data built on MacOS.
+    to review and experiment with this dataset access the specific MacOS
+    playground file.
+    */
+    
+    /*
+    func loadModel() ->MLModel? {
+      
+        do {
+                let config = MLModelConfiguration()
+                config.computeUnits = .all
+
+             return  try AEClassifier(configuration: config)
+            }
+            
+            
+                return try AEClassifier(configuration: config)
+              } catch {
+                print("Error loading model: \(error)")
+                return nil
+              }
+    }
+    */
+    
+    /*
+    func AEPredict(using statement: String) -> AEClassifierResult? {
+
+        let config = MLModelConfiguration()
+        config.computeUnits = .all
+
+    
+        guard let prediction = try? model.prediction(text: statement) else {
+            fatalError("Unexpected runtime error.")
+        }
+        
+        //return predicted value - String
+        return prediction.label
+
+        }
+     */
+        
+    }
 
 
 
