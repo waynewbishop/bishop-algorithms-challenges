@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  longestSequence.swift
 //  
 //
 //  Created by Wayne Bishop on 6/27/20.
@@ -8,13 +8,13 @@
 import Foundation
 
 /**
- Linear search provides a basic idea as to how the efficiency of the algorithm is effected as its input size grows. In this case, all collection values must be checked to find `evalue`.
+ Finds the longest count of recurring characters given a specified `String`.
 
- - Parameter evalue: The value to find in the `Array` collection.
- - Returns: a `boolean` value indicating if `evalue` was found.
- - Complexity: O(n) - linear time.
+ - Parameter key: The search value.
+ - Parmeter: list: The `String` value to be queried.
+ - Returns: The number of found occurences.
+ - Complexity: Average, O(n) - linear time.
  */
-
 
 func longestSequence(of key: String, list: String) -> Int {
     

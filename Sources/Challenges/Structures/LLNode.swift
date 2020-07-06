@@ -9,11 +9,9 @@ import Foundation
 
 
 /**
-   Linked List Algorithm. Provides a model
-
+    Linked list data structure
  - Complexity: O(n) - linear time.
  */
-
 
 public class LLNode <T> {
     
