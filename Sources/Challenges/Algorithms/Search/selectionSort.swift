@@ -9,10 +9,14 @@ import Foundation
 
 extension Array where Element: Comparable {
     
-    /*
-     selection sort algorithm - rank items from the lowest to highest by iterating through
+    
+    /**
+      Rank items from the lowest to highest by iterating through
      the array and swapping the current iteration with the lowest value in the rest of the array
      until it reaches the end of the array. performance of O(n2).
+
+     - Returns: An `Array` of sorted elements.
+     - Complexity: O(n2) - linear time.
      */
     
     func selectionSort() -> Array<Element> {

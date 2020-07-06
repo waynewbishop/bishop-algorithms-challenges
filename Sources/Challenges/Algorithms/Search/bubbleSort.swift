@@ -10,13 +10,15 @@ import Foundation
 
 extension Array where Element: Comparable {
    
-    /*
-     bubble sort algorithm - rank items from the lowest to highest by swapping
+    /**
+     Rank items from the lowest to highest by swapping
      groups of two items from left to right. The highest item in the set will bubble up to the
      right side of the set after the first iteration. performance of O(n2).
+
+     - Returns: An `Array` of sorted elements.
+     - Complexity: O(n2) - linear time.
      */
-    
-    
+
     func bubbleSort() -> Array<Element> {
         
         
