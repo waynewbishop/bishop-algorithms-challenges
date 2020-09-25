@@ -10,22 +10,16 @@ import Foundation
 
 extension String {
     
-    /**
-    Determines if a specified `String` qualifies as a palindrome. In other words,
-    can the string
-    - Important: The actual runtime is `O(n/2)`or greater. However, since constants
-    are cancelled in Big-O Notation, we say the algorithm runs in `O(n) - linear time`.
-    - Returns: The number of coins needed .
-    - Complexity: O(n) - linear time.
-    */
-
+    ///  Determines if a specified `String` qualifies as a palindrome. In other words,
+    /// - Returns: Boolean flag, indicating the determined result
+    
     public func isPalidrome() -> Bool  {
         
         var pstatus: Bool = false
                 
         //convert to array
-        let characters = Array(self)
-        
+        let characters = Array(self)  //todo: is this required? Just do this on self.
+            
         var findex: Int = characters.startIndex
         var bindex: Int = characters.endIndex - 1
 

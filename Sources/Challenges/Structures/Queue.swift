@@ -48,12 +48,12 @@ import Foundation
 
         
         //enqueue the specified object
-    public func enQueue(_ key: T) {
+    public func enQueue(_ tvalue: T) {
             
             
             //trivial case
             guard top?.tvalue != nil else {
-                top?.tvalue = key
+                top?.tvalue = tvalue
                 counter += 1
                 return
             }
@@ -69,7 +69,7 @@ import Foundation
             
             
             //append new item
-            childToUse.tvalue = key
+            childToUse.tvalue = tvalue
             current?.next = childToUse
             counter += 1
         }

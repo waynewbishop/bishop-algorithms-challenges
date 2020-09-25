@@ -11,7 +11,7 @@ import Foundation
     //data structure
    public class BSNode<T> {
 
-      var key: T?
+      var tvalue: T?
       var left: BSNode<T>?
       var right: BSNode<T>?
 

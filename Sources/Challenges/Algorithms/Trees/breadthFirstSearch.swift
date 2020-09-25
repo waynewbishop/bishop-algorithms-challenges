@@ -23,7 +23,7 @@ extension BSNode {
           //traverse the next queued node
           if let bitem = bsQueue.deQueue() {
                                   
-              if let key = bitem.key {
+              if let key = bitem.tvalue {
                   print("now traversing item: \(key)")
               }
                   

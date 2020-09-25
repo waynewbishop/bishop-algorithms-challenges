@@ -22,19 +22,42 @@ class Algorithms: XCTestCase {
     var emptyTextList: Array<String> = []
 
     
-    
-    override func setUpWithError() throws {
-        //add code here..
+    func isPalindrome() -> Bool {
+        
+        let results = "samiscool".isPalidrome()
+        return results
     }
     
+    func testReverseVowels() {
+        
+        let hello = reverseVowels("hello")
+        print("reverse vowels: \(hello)")
+        
+        let binarySearch = reverseVowels("binarySearch")
+        print("reverse vowels: \(binarySearch)")
+        
+    }
+    
+    
+    func testReverseVowelsQueue() {
+        
+        let hello = reverseVowelsQueue("hello")
+        print("reverse vowels: \(hello)")
+        
+        let binarySearch = reverseVowelsQueue("binarySearch")
+        print("reverse vowels: \(binarySearch)")
+        
+    }
+    
+        
     
     func testSubSequence() {
 
         //let sequence: Array<Int> = [1, 9, 3, 10, 4, 20, 2]
-        let sequence2: Array<Int> = [36, 41, 56, 35, 44, 33, 34, 92, 43, 32, 42]
+        let sequence2: Array<Int> = [36, 41, 56, 35, 44, 33, 34, 92, 43, 32, 42]  //32-36..
         let results = sequence2.subSequence()
         
-        print("consecutuve sequence: \(results)")
+        print("consecutive sequence: \(results)")
     }
 
     

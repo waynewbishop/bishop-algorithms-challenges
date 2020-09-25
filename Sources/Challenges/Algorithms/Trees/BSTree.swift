@@ -24,21 +24,21 @@ import Foundation
           var current: BSNode<T> = root
 
           //check for the presence at the root node
-          guard root.key != nil else {
-            root.key = item
+          guard root.tvalue != nil else {
+            root.tvalue = item
             return
           }
 
           let childToUse = BSNode<T>()
-          childToUse.key = item
+          childToUse.tvalue = item
           
 
           //determine its positioning based on the parent value
 
-          while let key = current.key {
+          while let tvalue = current.tvalue {
              
              //check the left side
-            if item < key {
+            if item < tvalue {
 
               if let lnode = current.left {
                 current = lnode
@@ -52,8 +52,8 @@ import Foundation
             }
 
             
-          //check the left side
-            if item > key {
+          //check right side
+            if item > tvalue {
 
               if let rnode = current.right {
                 current = rnode
@@ -77,12 +77,12 @@ import Foundation
         var current: BSNode<T> = root
 
         //check presence at root node
-        guard current.key != nil else {
+        guard current.tvalue != nil else {
           return false
         }
 
         //navigate structure in O(log n) time
-        while let key = current.key {
+        while let key = current.tvalue {
            
            //check left side
           if item <= key {

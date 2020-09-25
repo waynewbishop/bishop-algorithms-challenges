@@ -26,7 +26,7 @@ extension BSNode {
         }
 
         //only called when reached bottom of tree...
-        if let item = self.key {
+        if let item = self.tvalue {
           print("key is \(item)")
         }
 

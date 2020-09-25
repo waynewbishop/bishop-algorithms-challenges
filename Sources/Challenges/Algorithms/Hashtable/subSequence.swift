@@ -31,7 +31,7 @@ extension Array where Element: Comparable {
             }
         }
                 
-        //use dp to determine the consecutive count of non-open slots
+        //use dp to determine the consecutive count of non-open slots - O(n)
         var counter: Int = 0
         var longest: Int = 0
         
