@@ -8,30 +8,24 @@
 import Foundation
 
 
-//structure for holding
-class Event {
+//structure for holding dates..
+
+public class Event {
     
     var title: String?
-    var start: Date?
-    var end: Date?
+    var start: Date
+    var end: Date
     var conflict: Bool = false
     
-    init(_ title: String, _ start: String, _ end: String) {
+    init(_ title: String?, _ start: Date, _ end: Date) {
         
         self.title = title
-        self.start = dateFromString(start)
-        self.end = dateFromString(end)
+        self.start = start
+        self.end = end
     }
     
     
-    //formats a date
-    func dateFromString(_ item: String) -> Date? {
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy HH:mm"
-        
-        //return the formatted date
-        return formatter.date(from: item)
-    }
-
 }
+
+
+

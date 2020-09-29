@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-/*
+/**
  2. note: to avoid a situation of doing a n2 operation, your algorithm could serialize your
  event dates into a "pseudo" min-heap with a insert performance of O(n).
  
@@ -21,7 +20,6 @@ import Foundation
  holding the conflict metadata.
 */
 
-//encapsulates the event list of items to be compared.
 class EventHeap {
     
     var items = Array<Event>()
@@ -56,45 +54,69 @@ class EventHeap {
         self.items.append(event)
         
         var childIndex: Int = items.count - 1
-        var parentIndex: Int = childIndex - 1
+        var parentIndex: Int = 0
+
         
-                        
+        //calculate parent index
+        if childIndex != 0 {
+            parentIndex = childIndex - 1
+        }
+                
+        //heapify bottom-up process - O(n)
         while childIndex != 0 {
 
-            let childToUse: Event = items[childIndex]
-            let parentToUse: Event = items[parentIndex]
+            var childToUse: Event = items[childIndex]
+            var parentToUse: Event = items[parentIndex]
             
             
-            if let childStart = childToUse.start {
-                if let parentStart = parentToUse.start {
-                    
-                    //determine scheduling conflict
-                    
-                    //compare dates
-                    if childStart < parentStart {
-                        items.swapAt(parentIndex, childIndex)
-                    }
-                    
-                    //reset indices
-                    childIndex = parentIndex
-                    
-                    if childIndex != 0 {
-                        parentIndex = childIndex - 1
-                    }
-                        
+            self.isConflict(&parentToUse, &childToUse)
+            
+            
+            if childToUse.start < parentToUse.start {
+                items.swapAt(childIndex, parentIndex)
+                
+                //reset indices
+                childIndex = parentIndex
+                
+                if childIndex != 0 {
+                    parentIndex = childIndex - 1
                 }
+                                
             }
-            
+            else {
+                print("date correctly sorted..")
+                return
+            }
+
+                                
         }
-        
     }
     
-    
-    //determines if item date falls between the proposed start and end dates.
-    private func isConflict(start: Date, end: Date, itemdate: Date) -> Bool {
         
-        let range = start...end
-        return range.contains(itemdate) ? true: false
-    }
+    
+    //determines scheduling conflict between two events
+    private func isConflict(_ source: inout Event, _ target: inout Event)  {
+               
+        
+        //determine conflict based on the target
+        var range = source.start...source.end
+        
+        if range.contains(target.start) {
+            target.conflict = true
+            print("conflict detected..")
+        }
+
+        
+        //determine conflict based on the source
+        range = target.start...target.end
+        
+        if range.contains(source.end) {
+            source.conflict = true
+            print("conflict detected..")
+        }
+    
+        
+    } //end function
+        
     
 }

@@ -22,11 +22,61 @@ class Algorithms: XCTestCase {
     var emptyTextList: Array<String> = []
 
     
-    func isPalindrome() -> Bool {
+    func testConflictingEvents() {
+        
+        //start times conflict
+        let eventA = Event("Baseball", dateString("09/29/2020 15:00"), dateString("09/29/2020 16:00"))
+        let eventC = Event("Karate", dateString("09/29/2020 15:30"), dateString("09/29/2020 15:45"))
+        
+        //end times conflict
+        let eventB = Event("Soccer", dateString("09/24/2020 7:30"), dateString("09/24/2020 9:15"))
+        let eventD = Event("Tennis", dateString("09/24/2020 7:15"), dateString("09/24/2020 9:30"))
+        
+        
+        //organize new events
+        let events = EventHeap()
+        
+        events.enQueue(eventA)
+        events.enQueue(eventC)
+        
+        events.enQueue(eventB)
+        events.enQueue(eventD)
+
+        
+        //print items in decending order..
+        for e in events.items {
+            if let title = e.title {
+                print("\(title): conflict: \(e.conflict)")
+            }
+        }
+        
+    }
+    
+    
+    //formats a date
+    func dateString(_ item: String) -> Date {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy HH:mm"
+    
+        //return the formatted date
+        if let results = formatter.date(from: item) {
+            return results
+        }
+        else {
+            return Date()
+        }
+    
+    }
+
+        
+    
+    func testIsPalindrome() -> Bool {
         
         let results = "samiscool".isPalidrome()
         return results
     }
+
     
     func testReverseVowels() {
         
