@@ -47,5 +47,24 @@ extension String {
                 
         return pstatus
     }
+    
+    
+    
+    /// Determines if the String can be arranged to produce a palindrome.
+    /// - Returns: a true or false value
+    func isPalindromePermutation() -> Bool { // Mom
+
+        var lettersSet: Set<String> = [] // o
+        
+        for char in self { // m
+            let lowercase = char.lowercased()
+            if lettersSet.contains(lowercase) {
+                lettersSet.remove(lowercase)
+            } else {
+                lettersSet.insert(lowercase)
+            }
+        }
+        return lettersSet.count < 2
+    }
 
 }

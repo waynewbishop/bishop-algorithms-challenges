@@ -22,15 +22,38 @@ class Algorithms: XCTestCase {
     var emptyTextList: Array<String> = []
 
     
+    func testCommonElement() {
+
+        let matrix = [[1, 2, 3, 4, 5], [2, 4, 5, 8, 10], [3, 5, 7, 8, 9, 11], [1, 3, 5, 7, 8, 9]]
+        let result = commonElement(matrix)
+        
+        print(result!)
+    }
+    
+    func testRemoveWhitespace() {
+                
+        //var basic = "This is a test"
+        var alphabet = "The qu ick fox jum ped over the lazy d o g"
+        alphabet.removeSpace2()
+                
+        print("The results: \(alphabet)")
+    }
+    
+    
     func testConflictingEvents() {
         
-        //start times conflict
         let eventA = Event("Baseball", dateString("09/29/2020 15:00"), dateString("09/29/2020 16:00"))
         let eventC = Event("Karate", dateString("09/29/2020 15:30"), dateString("09/29/2020 15:45"))
         
-        //end times conflict
-        let eventB = Event("Soccer", dateString("09/24/2020 7:30"), dateString("09/24/2020 9:15"))
-        let eventD = Event("Tennis", dateString("09/24/2020 7:15"), dateString("09/24/2020 9:30"))
+         //end times conflict
+         let eventB = Event("Soccer", dateString("09/24/2020 07:30"), dateString("09/24/2020 9:15"))
+         let eventE = Event("Coding", dateString("09/24/2020 09:30"), dateString("09/24/2020 11:30"))
+         let eventD = Event("Tennis", dateString("09/24/2020 07:15"), dateString("09/24/2020 10:00"))
+        
+        
+         //let eventE = Event("Evening Cookout with Friends", dateString("11/06/2018 17:00"), dateString("11/06/2018 22:00"))
+        //let eventD = Event("SF Coffee Festival", dateString("11/06/2018 18:00"), dateString("11/06/2018 21:00"))
+        
         
         
         //organize new events
@@ -40,13 +63,14 @@ class Algorithms: XCTestCase {
         events.enQueue(eventC)
         
         events.enQueue(eventB)
+        events.enQueue(eventE)
         events.enQueue(eventD)
 
         
         //print items in decending order..
         for e in events.items {
             if let title = e.title {
-                print("\(title): conflict: \(e.conflict)")
+                print("\(title): \(e.start) - \(e.end) conflict: \(e.conflict)")
             }
         }
         

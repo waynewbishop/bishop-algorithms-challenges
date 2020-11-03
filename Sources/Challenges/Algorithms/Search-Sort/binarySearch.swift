@@ -16,15 +16,6 @@ extension Array where Element: Comparable {
       return startIndex + (count / 2)
     }
 
-    /**
-     Linear search provides a basic idea as to how the efficiency of the algorithm is effected as
-     its input size grows. In this case, all collection values must be checked to find `evalue`.
-
-     - Parameter n: The value to find in the `Array` collection.
-     - Returns: a `Int` value indicating if `evalue` was found.
-     - Complexity: O(n) - linear time.
-     */
-
     public mutating func binarySearch(forElement key: Element) -> Bool {
           
           var result = false

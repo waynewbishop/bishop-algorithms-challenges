@@ -17,7 +17,7 @@ extension String {
          notes: While this operation would normally be done with the
          native characters.reversed() method, this has been added as an example interview question.
          */
-        
+                
         //convert to array
         var characters = Array(self)
         

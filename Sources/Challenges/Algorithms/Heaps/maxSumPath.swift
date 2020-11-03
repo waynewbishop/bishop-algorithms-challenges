@@ -41,9 +41,9 @@ public func maxPathSum(using sequence: Array<Int>) -> Int {
         if sequence.indices.contains(rindex) {
             right = sequence[rindex]
         }
-
         
-        //calcuate subtree value
+        
+        //calculate subtree value
         let total = element + left + right
                 
         //compare the subtree totals

@@ -11,7 +11,7 @@ protocol Floatable {
 
 extension Floatable {
     func floating(){
-       print("boat is now floating..")
+        print("\(type(of: self)) is now floating..")
    }
 }
 
@@ -36,11 +36,11 @@ protocol Flyable {
 extension Flyable {
     
     func flying() {
-        print("plane is flying..")
+        print("\(type(of: self)) is flying..")
     }
     
     func landing() {
-        print("plane approaching for a landing..")
+        print("\(type(of: self)) approaching for a landing..")
     }
 }
 

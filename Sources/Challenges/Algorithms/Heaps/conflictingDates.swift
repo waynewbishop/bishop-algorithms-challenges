@@ -8,13 +8,12 @@
 import Foundation
 
 /**
- 2. note: to avoid a situation of doing a n2 operation, your algorithm could serialize your
+ note: to avoid a situation of doing a n2 operation, your algorithm could serialize your
  event dates into a "pseudo" min-heap with a insert performance of O(n).
  
  As part of the heapify process, as new dates are added they would be compared to all other dates,
  with the smallest date rising the top. As dates are compared, the newly added date range
- is compared with the existing data. If there is a conflict, the newly added record
- "conflict" property is updated.
+ is compared with the existing data.
  
  this process allows for all the data to be correctly sorted, with all records correctly
  holding the conflict metadata.
@@ -62,18 +61,19 @@ class EventHeap {
             parentIndex = childIndex - 1
         }
                 
-        //heapify bottom-up process - O(n)
+        //heapify bottom-up process - O(n) or greater
         while childIndex != 0 {
 
             var childToUse: Event = items[childIndex]
             var parentToUse: Event = items[parentIndex]
-            
+
             
             self.isConflict(&parentToUse, &childToUse)
             
-            
+                                                
             if childToUse.start < parentToUse.start {
                 items.swapAt(childIndex, parentIndex)
+                
                 
                 //reset indices
                 childIndex = parentIndex
@@ -87,7 +87,7 @@ class EventHeap {
                 print("date correctly sorted..")
                 return
             }
-
+            
                                 
         }
     }
@@ -96,23 +96,26 @@ class EventHeap {
     
     //determines scheduling conflict between two events
     private func isConflict(_ source: inout Event, _ target: inout Event)  {
-               
         
-        //determine conflict based on the target
+        print("comparing \(source.title!) and \(target.title!)")  //excuse the "forced unwraps"!
+
+        
+        //conflict based on the target
         var range = source.start...source.end
+        
         
         if range.contains(target.start) {
             target.conflict = true
-            print("conflict detected..")
+            print("\(target.title!): start date conflict detected..")
         }
 
         
-        //determine conflict based on the source
+        //conflict based on the source
         range = target.start...target.end
         
         if range.contains(source.end) {
             source.conflict = true
-            print("conflict detected..")
+            print("\(source.title!): end date conflict with \(target.title!) detected..")
         }
     
         
