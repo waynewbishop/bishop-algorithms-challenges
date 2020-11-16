@@ -23,7 +23,7 @@ extension String {
         }
         
         
-        //match unicode representation - O(n)
+        //match unicode representation - O(n) or greater
         var list = Array<Bool?>(repeatElement(nil, count: 128))
         
         for scalar in self.unicodeScalars {

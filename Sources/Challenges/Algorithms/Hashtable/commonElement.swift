@@ -8,22 +8,27 @@
 import Foundation
 
 
-//note: this function assumed the values in each matrix row is sorted.
+/**
+ Given a matrix where every row is sorted in increasing order, return the smallest common element in all rows. If there is no common element return -1.
+
+ - Parameter matrix: The series of items to be evaluated.
+ - Returns: The largest number of consecutive elements.
+ */
 
 public func commonElement(_ matrix: [[Int]]) -> Int? {
     
-    var buckets = Array<Table<Int>?>(repeatElement(nil, count: matrix.count * matrix[0].count ))
+    var buckets = Array<Table<Int>?>(repeatElement(nil, count: 15))
     
     //trivial case
     guard matrix.count > 0, matrix[0].count > 0 else{
-        return -1
+        return nil
     }
 
-    //assumes non-duplicate values per row
+    //note: assumes non-duplicate values per row
     for row in matrix {
         for item in row {
 
-            //check table item
+            //check table item - collision..
             if let table = buckets[item] {
                 table.add(item)
                 
@@ -33,13 +38,12 @@ public func commonElement(_ matrix: [[Int]]) -> Int? {
                 }
             }
             else {
-                let newTable = Table(item)
+                let newTable = Table(item) //new item added..
                 buckets[item] = newTable
             }
             
         }
     }
-        
-    
-    return -1
+            
+    return nil
 }

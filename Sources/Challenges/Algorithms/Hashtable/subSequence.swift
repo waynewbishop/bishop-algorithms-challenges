@@ -22,7 +22,7 @@ extension Array where Element: Comparable {
 
     public func subSequence(capacity: Int = 100) -> Int {
             
-        var buckets = Array<Int?>(repeatElement(nil, count: capacity))
+        var buckets = Array<Int?>(repeatElement(nil, count: capacity))  //todo: fix this!
         
         //build bucket list
         for e in self {

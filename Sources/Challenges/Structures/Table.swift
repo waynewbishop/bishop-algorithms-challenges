@@ -13,7 +13,7 @@ import Foundation
 
 public class Table <T: Equatable> {
     
-    var tvalue: T?
+    var tvalue: T? 
     var count: Int
 
     //set initializers

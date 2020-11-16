@@ -22,9 +22,38 @@ class Algorithms: XCTestCase {
     var emptyTextList: Array<String> = []
 
     
+    func testSumRangeTotal() {
+        
+        //build tree model
+        let bstree = BSTree<Int>()
+        let low: Int = 7
+        let high: Int = 15
+        
+        bstree.append(10)
+        bstree.append(5)
+        bstree.append(15)
+        bstree.append(3)
+        bstree.append(7)
+        bstree.append(18)
+        
+
+        //evaluate total
+        let result = bstree.sumRangeTotal(low, high)
+        print("results total: \(result)")
+
+        
+        //evaluate series
+        if let sequence = bstree.sumRangeSequence(low, high) {
+            print("results sequence: \(sequence)")
+        }
+        
+    }
+    
+    
     func testCommonElement() {
 
         let matrix = [[1, 2, 3, 4, 5], [2, 4, 5, 8, 10], [3, 5, 7, 8, 9, 11], [1, 3, 5, 7, 8, 9]]
+      //  let matrix = [[1, 7], [4, 7], [3, 7]]
         let result = commonElement(matrix)
         
         print(result!)
