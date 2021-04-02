@@ -1,5 +1,52 @@
 import UIKit
 
+//generic linked list node
+
+var numbers = Array<Int>()
+numbers.append(5)
+numbers.append(7)
+
+
+//generic link list node
+class LLNode <T> {
+    var tvalue: T?
+    var previous: LLNode<T>?
+    var next: LLNode<T>?
+}
+
+var nodes = Array<LLNode<Int>>()
+nodes.append(LLNode<Int>())
+
+
+
+//generic types supplied at the function level
+
+/*
+class Math {
+  func isEqual <E>(lhs: E, rhs: E) -> Bool {
+    return lhs == rhs ? true: false
+  }
+
+  func isHigher <A>(lhs: A, rhs: A) -> A {
+        return lhs > rhs ? lhs: rhs
+  }
+}
+*/
+
+
+
+class Math {
+    func isEqual <E: Equatable>(lhs: E, rhs: E) -> Bool {
+    return lhs == rhs ? true: false
+  }
+
+    func isHigher <A: Comparable>(lhs: A, rhs: A) -> A {
+        return lhs > rhs ? lhs: rhs
+  }
+}
+
+
+
 
 protocol Floatable {
     

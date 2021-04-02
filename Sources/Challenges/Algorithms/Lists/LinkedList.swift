@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  LinkedList.swift
 //  
 //
 //  Created by Wayne Bishop on 6/27/20.
@@ -43,8 +43,27 @@ import Foundation
         childToUse.previous = current
         
       }
-      
+
+    
+        //print values
+        public func printValues() {
+            
+            var current: LLNode? = head
+            
+            //assign the next instance
+            while current != nil {
+                
+                if let item = current {
+                    if let tvalue = item.tvalue {
+                        print("link item is: \(tvalue)")
+                    }
+                    current = item.next
+                }
+            }
+            
+        }
         
+    
       //reverse the order of a linked list
       public func reverse() {
        

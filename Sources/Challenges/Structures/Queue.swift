@@ -8,100 +8,135 @@
 import Foundation
 
 
-  public class Queue<T> {
-            
-        private var top: Node<T>?
-        private var counter: Int = 0
+public class Queue<T>: Sequence, IteratorProtocol {
         
-        public init() {
-          top = Node<T>()
+    var top = Node<T>()
+    private var counter: Int = 0
+    private var iterator: Node<T>?
+    private var times: Int = 0
+
+    
+
+    public init() {
+        //dependency support
+    }
+    
+    public var count: Int {
+        return counter
+    }
+
+    
+    public func peek() -> T? {
+        return top.tvalue
+    }
+    
+    
+    
+    //check for a value
+    public func isEmpty() -> Bool {
+        
+        guard top.tvalue != nil else {
+            return true
         }
         
-        
-        //the number of items
-        var count: Int {
-            return counter
-        }
-
-        //MARK: Supporting Functions
-        
-        
-        //retrieve the top most item
-        func peek() -> T? {
-            return top?.tvalue
-        }
-        
-        
-        
-        //check for the presence of a value
-  public func isEmpty() -> Bool {
-            
-            guard top?.tvalue != nil else {
-                return true
-            }
-            return false
-        }
+        return false
+    }
 
 
-        
-        //MARK: Queuing Functions
+    
+    //MARK: Queuing Functions
 
+    
+    //enqueue specified item - O(n)
+    public func enQueue(_ key: T) {
         
-        //enqueue the specified object
-    public func enQueue(_ tvalue: T) {
-            
-            
-            //trivial case
-            guard top?.tvalue != nil else {
-                top?.tvalue = tvalue
-                counter += 1
-                return
-            }
-            
-            let childToUse = Node<T>()
-            var current = top
         
-            
-            //cycle through the list - linear time
-            while current?.next != nil {
-                current = current?.next
-            }
-            
-            
-            //append new item
-            childToUse.tvalue = tvalue
-            current?.next = childToUse
+        //trivial case
+        guard top.tvalue != nil else {
+            top.tvalue = key
             counter += 1
+            return
         }
         
+        let childToUse = Node<T>()
+        var current = top
 
         
-        //retrieve items from the top level - O(1) time
-    public func deQueue() -> T? {
-        
-        
-            //determine key instance
-            guard top?.tvalue != nil else {
-                return nil
-            }
-        
-            
-            //retrieve and queue the next item
-            let queueItem: T? = top?.tvalue
-        
-        
-            //use optional binding
-            if let nextItem = top?.next {
-              top = nextItem
-            }
-            else {
-                top = Node<T>()
-            }
-        
-            counter -= 1
-        
-            return queueItem
-            
+        //find next position - O(n)
+        while let next = current.next {
+            current = next
         }
-            
-    } //end class
+        
+        
+        //append new item
+        childToUse.tvalue = key
+        current.next = childToUse
+        counter += 1
+    }
+    
+
+    
+    //retrieve top level item - O(1)
+    public func deQueue() -> T? {
+    
+    
+        //trivial case
+        guard top.tvalue != nil else {
+            return nil
+        }
+    
+        
+        //retrieve current item
+        let item = top.tvalue
+    
+    
+        //queue next item
+        if let next = top.next {
+          top = next
+          counter -= 1
+        }
+    
+        else {
+          top.tvalue = nil
+          counter = 0
+        }
+    
+    
+        return item
+    
+    }
+    
+    
+    //MARK: Iterator protocol conformance
+    
+    
+     //iterates through each item
+     public func next() -> T? {
+         
+         print("iterator called..")
+         
+         //check starting reference
+         if times == 0 {
+             iterator = top
+         }
+                 
+         
+         //assign next instance
+         if let item = iterator {
+             if let tvalue = item.tvalue {
+                 iterator = item.next
+                 times += 1
+                 return tvalue
+             }
+         }
+         
+         //reset timer
+         times = 0
+         
+         return nil
+         
+     }
+     
+    
+    
+} //end class

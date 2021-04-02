@@ -111,7 +111,7 @@ class Algorithms: XCTestCase {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy HH:mm"
-    
+        
         //return the formatted date
         if let results = formatter.date(from: item) {
             return results

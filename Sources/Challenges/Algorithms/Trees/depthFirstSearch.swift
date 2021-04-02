@@ -36,5 +36,32 @@ extension BSNode {
         }
 
       }
+ 
+    
+    //flatten the model to a queue
+    public func traverseToQueue() -> Queue<T> {
+        
+        let queue = Queue<T>()
+        
+        //process the left side
+        if let left = self.left {
+          left.traverse()
+        }
+        
+        //enqueue results
+        if let item = self.tvalue {
+            queue.enQueue(item)
+        }
+        
+        //process the right side
+        if let right = self.right {
+          right.traverse()
+        }
+        
+        return queue
+        
+    }
+    
+    
     
 }

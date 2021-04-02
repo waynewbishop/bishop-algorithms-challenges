@@ -12,7 +12,7 @@ extension String {
      
     
     /// Function does not work because the string indicies are mutated during the enumeration.
-    /// - Returns: <#description#>
+    /// - Returns:
     public mutating func removeSpace() {
                 
         //iterate through the model
@@ -35,12 +35,10 @@ extension String {
         
         let space: Character = Character(" ")  //ascii representation?
         
-        //while self.contains(space) {
-            while let index = self.firstIndex(of: space) {
-                self.remove(at: index)
-            }
-        //}
-        
+        while let index = self.firstIndex(of: space) {
+            self.remove(at: index)
+        }
+                
     }
     
     

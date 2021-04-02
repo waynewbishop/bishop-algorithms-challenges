@@ -9,8 +9,7 @@ import Foundation
 
 
 extension Array where Element: Comparable {
-        
-        
+                
     /**
      Given an array of integers, find the length of the longest sub-sequence
      such that elements in the subsequence are consecutive integers,
@@ -20,9 +19,9 @@ extension Array where Element: Comparable {
      - Returns: The largest number of consecutive elements.
      */
 
-    public func subSequence(capacity: Int = 100) -> Int {
+    public func subSequence() -> Int {
             
-        var buckets = Array<Int?>(repeatElement(nil, count: capacity))  //todo: fix this!
+        var buckets = Array<Int?>(repeatElement(nil, count: self.capacity)) 
         
         //build bucket list
         for e in self {

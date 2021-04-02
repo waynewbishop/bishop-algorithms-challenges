@@ -23,8 +23,7 @@ public class Event {
         self.start = start
         self.end = end
     }
-    
-    
+        
 }
 
 
