@@ -11,12 +11,13 @@ public class BSTree <T: Comparable>: Sequence, IteratorProtocol {
 
     //represents the entire tree
     var root: BSNode<T>
-    var iterator: T?
+    var iterator: Queue<T>
     var times: Int = 0
     
     
     public init() {
         root = BSNode<T>()
+        iterator = Queue<T>()
     }
 
     
@@ -138,12 +139,38 @@ public class BSTree <T: Comparable>: Sequence, IteratorProtocol {
     //iterates through each item
     public func next() -> T? {
         
+        print("iterator called..")
+        
         if times == 0 {
-            
+           iterator = self.traverseToQueue()
         }
+        
+        //assign next instance
+        if let item = iterator.deQueue() {
+            times += 1
+            return item
+        }
+        
+        //reset timer
+        times = 0
         
         return nil
     }
+    
+    
+    //helper function
+    private func traverseToQueue() -> Queue<T> {
+        
+        let queue = Queue<T>()
+        
+        //trailing closure
+        root.traverse { (key: T) in
+            queue.enQueue(key)
+        }
+        
+        return queue
+    }
+
  
 }
     

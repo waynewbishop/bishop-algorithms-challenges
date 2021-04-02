@@ -18,8 +18,8 @@ extension BSNode {
             left.traverse(formula)
           }
             
-          if let key = self.tvalue {
-            formula(key)
+          if let tvalue = self.tvalue {
+            formula(tvalue)
           }
             
           if let right = self.right {

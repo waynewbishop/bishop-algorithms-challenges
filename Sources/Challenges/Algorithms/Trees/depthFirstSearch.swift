@@ -18,6 +18,7 @@ extension BSNode {
      - Complexity: O(n) - linear time.
      */
     
+    
     public func traverse() {
 
         //process the left side
@@ -39,7 +40,7 @@ extension BSNode {
  
     
     //flatten the model to a queue
-    public func traverseToQueue() -> Queue<T> {
+    public func traverseToQueue() {
         
         let queue = Queue<T>()
         
@@ -57,8 +58,6 @@ extension BSNode {
         if let right = self.right {
           right.traverse()
         }
-        
-        return queue
         
     }
     
