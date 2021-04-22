@@ -117,7 +117,7 @@ public class Stack<T>: Sequence, IteratorProtocol {
         }
                 
         
-        //assign next instance
+        //assign next instance - O(n)
         if let item = iterator {
             if let tvalue = item.tvalue {
                 iterator = item.next

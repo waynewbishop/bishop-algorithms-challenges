@@ -19,7 +19,7 @@ extension BSNode {
           }
             
           if let tvalue = self.tvalue {
-            formula(tvalue)
+            formula(tvalue) //print(tvalue) - normally..
           }
             
           if let right = self.right {

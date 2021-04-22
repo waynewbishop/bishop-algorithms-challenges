@@ -16,7 +16,7 @@ import Foundation
 func reverseVowels(_ sequence: String) -> String  {
     
     var result: String = ""
-    let vowels =  Set(arrayLiteral: "a", "e", "i", "o", "u")
+    let vowels =  Set(arrayLiteral: "a", "e", "i", "o", "u")  //question: why use a set?
     let stack = Stack<String>()
     
     //push vowels to stack - O(n)

@@ -22,6 +22,17 @@ class Algorithms: XCTestCase {
     var emptyTextList: Array<String> = []
 
     
+    func testLargestElement() {
+        
+        let sequence = [8, 40, 22, 16, 806]
+
+        //find value at the 4th position
+        if let result = sequence.largestElement(position: 2) {
+            print("value at 2nd position: \(result)")
+        }
+
+    }
+    
     func testSumRangeTotal() {
         
         //build tree model
@@ -52,8 +63,8 @@ class Algorithms: XCTestCase {
     
     func testCommonElement() {
 
-        let matrix = [[1, 2, 3, 4, 5], [2, 4, 5, 8, 10], [3, 5, 7, 8, 9, 11], [1, 3, 5, 7, 8, 9]]
-      //  let matrix = [[1, 7], [4, 7], [3, 7]]
+       // let matrix = [[1, 2, 3, 4, 5], [2, 4, 5, 8, 10], [3, 5, 7, 8, 9, 11], [1, 3, 5, 7, 8, 9]]
+        let matrix = [[1, 7], [4, 7], [3, 7]]
         let result = commonElement(matrix)
         
         print(result!)

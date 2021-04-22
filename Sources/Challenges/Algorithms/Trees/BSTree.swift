@@ -142,7 +142,7 @@ public class BSTree <T: Comparable>: Sequence, IteratorProtocol {
         print("iterator called..")
         
         if times == 0 {
-           iterator = self.traverseToQueue()
+           iterator = self.treeToQueue()
         }
         
         //assign next instance
@@ -158,12 +158,12 @@ public class BSTree <T: Comparable>: Sequence, IteratorProtocol {
     }
     
     
-    //helper function
-    private func traverseToQueue() -> Queue<T> {
+    //helper function - transform model
+    private func treeToQueue() -> Queue<T> {
         
         let queue = Queue<T>()
         
-        //trailing closure
+        //trailing closure - dfs
         root.traverse { (key: T) in
             queue.enQueue(key)
         }

@@ -32,7 +32,7 @@ public func commonElement(_ matrix: [[Int]]) -> Int? {
             if let table = buckets[item] {
                 table.add(item)
                 
-                //determine match
+                //determine count match
                 if table.count == matrix.count {
                     return table.tvalue
                 }

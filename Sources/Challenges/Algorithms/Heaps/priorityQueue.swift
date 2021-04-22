@@ -63,7 +63,7 @@ public class Priority <T: Comparable> {
         }
                 
         
-        //heapify - bottom-up approach
+        //heapify - bottom-up approach O(log n)
                   
           
           //calculate parent index
