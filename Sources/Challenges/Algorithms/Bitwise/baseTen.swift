@@ -12,14 +12,14 @@ import Foundation
 extension LinkedList {
     
     /**
-     The `baseTen` algorithm returns base-10 value from binary
+     The `toBaseTen` algorithm returns base-10 value from binary
      value represented in a linked list.
 
      - Returns: an Int` that represents the binary equilvalent.
      - Complexity: O(n) - linear time.
      */
         
-     public func baseTen() -> Int {
+     public func toBaseTen() -> Int {
 
         //trivial check
         guard head.tvalue != nil else {

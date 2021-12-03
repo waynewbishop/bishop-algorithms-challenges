@@ -102,7 +102,7 @@ class EventHeap {
         
         //conflict based on the target
         var range = source.start...source.end
-        
+        var interval: DateInterval
         
         if range.contains(target.start) {
             target.conflict = true

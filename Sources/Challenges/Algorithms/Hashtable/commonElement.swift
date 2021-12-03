@@ -16,7 +16,7 @@ import Foundation
  */
 
 public func commonElement(_ matrix: [[Int]]) -> Int? {
-    
+        
     var buckets = Array<Table<Int>?>(repeatElement(nil, count: 15))
     
     //trivial case

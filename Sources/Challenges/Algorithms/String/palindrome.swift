@@ -22,13 +22,13 @@ extension String {
             
         var findex: Int = characters.startIndex
         var bindex: Int = characters.endIndex - 1
-
-        //obtain starting value
-        let fvalue = String(characters[findex])
-        let bvalue = String(characters[bindex])
         
         //compare the forward and backward indices
         while findex < bindex {
+            
+            //obtain starting value
+            let fvalue = String(characters[findex])
+            let bvalue = String(characters[bindex])
             
             if fvalue == bvalue {
                pstatus = true

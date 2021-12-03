@@ -8,12 +8,11 @@
 import Foundation
 
 
-/// Find the Kth largest element
+/// Find the kth largest element
 /// - Parameters:
 ///   - sequence: the list of sequence values
 ///   - position: the item position
 /// - Returns: provides the value at the kth position
-
 
 extension Array where Element: Comparable {
     
@@ -46,6 +45,7 @@ extension Array where Element: Comparable {
              */
             if (self.count - index) == position {
                 results = item
+                //return ? Could I just call return here??
             }
             else {
                 index += 1

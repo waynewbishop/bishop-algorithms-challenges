@@ -9,8 +9,7 @@ import Foundation
 
 
 public class Stack<T>: Sequence, IteratorProtocol {
-    
-    
+        
    public var top: Node<T>
    private var counter: Int = 0
    private var iterator: Node<T>?

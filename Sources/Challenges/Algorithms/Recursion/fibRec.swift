@@ -8,15 +8,11 @@
 import Foundation
 
 
-/**
- Linear search provides a basic idea as to how the efficiency of the algorithm is effected as
- its input size grows. In this case, all collection values must be checked to find `evalue`.
 
- - Parameter n: The value to find in the `Array` collection.
- - Returns: a `Int` value indicating if `evalue` was found.
- - Complexity: O(n) - linear time.
- */
-
+/// Recursive version of Fibonacci sequence algorithm
+/// - Parameter n: positions of sequence
+/// - Returns: the calculated result
+///
    public func fibRec(_ n: Int) -> Int {
         print("fibRecursive called!")
 

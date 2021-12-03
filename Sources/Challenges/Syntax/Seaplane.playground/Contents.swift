@@ -59,13 +59,13 @@ class Seaplane: Floatable, Flyable {
     
     var wings: String?
     var propeller: String?
+    
 }
 
 let seaplane = Seaplane()
 
 seaplane.flying()
 seaplane.floating()
-
 
 //create a boat
 var myboat = Boat()

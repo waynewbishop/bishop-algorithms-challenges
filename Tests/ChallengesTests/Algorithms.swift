@@ -22,6 +22,68 @@ class Algorithms: XCTestCase {
     var emptyTextList: Array<String> = []
 
     
+    func testCountingSort() {
+        
+        let sequence = [0, 1, 3, 1, 2, 4, 3, 2]
+        
+        let results = countingSort(using: sequence)
+        
+        if let table = results {
+            for item in table {
+                if let i = item {
+                    print("item: \(i.tvalue) seen \(i.count) times.")
+                }
+            }
+        }
+
+        
+    }
+    
+    
+    func testCountingSortWithHeap() {
+        
+        let sequence = [0, 1, 3, 1, 2, 4, 3, 2]
+        
+        let results = countingSortWithHeap(using: sequence)
+
+        
+        if let table = results {
+            for item in table {
+                if let i = item {
+                    print("item: \(i.tvalue) seen \(i.count) times.")
+                }
+            }
+        }
+        
+    }
+
+    
+    func testBaseTen() {
+        
+        let binary = LinkedList<Int>()
+        
+        //binary representation..
+        binary.append(1)
+        binary.append(0)
+        binary.append(0)
+        binary.append(1)
+        
+        let results = binary.toBaseTen()
+        print("base-10 value is:\(results)")
+                
+    }
+    
+    func testBaseTenArray() {
+        
+        var binary = [1, 0, 0, 1]
+        
+        let results = binary.toBaseTen()
+        print("base-10 value is:\(results)")
+        
+    }
+    
+    
+    
     func testLargestElement() {
         
         let sequence = [8, 40, 22, 16, 806]
@@ -189,12 +251,21 @@ class Algorithms: XCTestCase {
     
         
     
-    //test fibonacci sequence to
+    //test fibonacci sequence with output array
     func testFibMemoized() {
         let position = 4
         
         let result = position.fibMemoized()
         print(result)
+    }
+    
+    
+    func testFibMemoizedPosition() {
+        let position  = 4
+        
+        let result = fibMemoizedPosition(position)
+        print(result)
+        
     }
     
     

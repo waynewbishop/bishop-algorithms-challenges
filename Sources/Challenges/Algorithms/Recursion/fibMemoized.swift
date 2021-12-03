@@ -26,12 +26,12 @@ extension Int {
         var i: Int = 2
         
         //trivial case
-        guard self > 2 else {
+        guard self > i else {
             return output
         }
         
         //all other cases..
-        while i < self {
+        while i <= self {
             let results: Int = output[i - 1] + output[i - 2]
             output.append(results)
             i += 1
@@ -40,7 +40,6 @@ extension Int {
         return output
         
     }
-    
     
 }
 

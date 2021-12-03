@@ -7,13 +7,12 @@
 
 import Foundation
 
-/**
-  Custom generic structure used with hash tables and priorty queues.
- */
 
-public class Table <T: Equatable> {
+
+/// Custom generic structure used with hash tables and priorty queues.
+public class Table <T: Comparable>: Comparable {
     
-    var tvalue: T? 
+    var tvalue: T
     var count: Int
 
     //set initializers
@@ -29,6 +28,17 @@ public class Table <T: Equatable> {
         if self.tvalue == tvalue {
             self.count += 1
         }
+    }
+
+    
+    //equatable conformance
+    public static func == (lhs: Table, rhs: Table) -> Bool {
+        return lhs.tvalue == rhs.tvalue
+    }
+    
+    //comparable conformance
+    public static func < (lhs: Table, rhs: Table) -> Bool {
+        return lhs.tvalue < rhs.tvalue
     }
     
 }
