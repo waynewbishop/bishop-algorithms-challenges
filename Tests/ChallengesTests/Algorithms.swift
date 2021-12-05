@@ -141,7 +141,7 @@ class Algorithms: XCTestCase {
         print("The results: \(alphabet)")
     }
     
-    
+   
     func testConflictingEvents() {
         
         let eventA = Event("Baseball", dateString("09/29/2020 15:00"), dateString("09/29/2020 16:00"))
@@ -155,7 +155,6 @@ class Algorithms: XCTestCase {
         
          //let eventE = Event("Evening Cookout with Friends", dateString("11/06/2018 17:00"), dateString("11/06/2018 22:00"))
         //let eventD = Event("SF Coffee Festival", dateString("11/06/2018 18:00"), dateString("11/06/2018 21:00"))
-        
         
         
         //organize new events
@@ -177,6 +176,8 @@ class Algorithms: XCTestCase {
         }
         
     }
+
+  
     
     
     //formats a date
