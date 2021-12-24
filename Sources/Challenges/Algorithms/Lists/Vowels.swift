@@ -23,7 +23,7 @@ func reverseVowels(_ sequence: String) -> String  {
     for s in sequence {
         let pushStr = String(s)
         
-        if vowels.contains(pushStr) {
+        if vowels.contains(pushStr) { //constant time -  O(1)
             stack.push(pushStr)
         }
     }

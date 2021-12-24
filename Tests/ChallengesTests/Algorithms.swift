@@ -22,6 +22,37 @@ class Algorithms: XCTestCase {
     var emptyTextList: Array<String> = []
 
     
+    func testPairNumbers() {
+        
+        //non-memoized version
+        let results_a = pairNumbers(sum: 11)
+        print("values are \(results_a.0) and \(results_a.1)")
+        
+        //memoized version
+        let results_b = pairNumbersMemoized(sum: 11)
+        print("values are \(results_b.0) and \(results_b.1)")
+        
+    }
+    
+    func testValueReference() {
+ 
+        //struct instance
+        var a = sCar(color: "Blue")
+        let b = a
+        a.color = "Green"
+        print("\(a.color), \(b.color)")  //what will this print?
+
+        
+        //class instance
+        let c = cCar(color: "Blue")
+        let d = c
+        c.color = "Green"
+        print("\(c.color), \(d.color)") //what will this print?
+        
+    }
+
+    
+    
     func testCountingSort() {
         
         let sequence = [0, 1, 3, 1, 2, 4, 3, 2]

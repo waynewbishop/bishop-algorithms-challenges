@@ -17,6 +17,7 @@ func pairNumbers(sum: Int) -> (Int, Int) {
         let diff = sum - a
         
         for b in sequence {
+            print("new iteration..")
             if (b != a) && (b == diff) {
                 return (a, b)
             }
@@ -33,6 +34,7 @@ func pairNumbersMemoized(sum: Int) -> (Int, Int) {
     var addends = Set<Int>()
     
     for a in sequence {
+        print("new iteration..")
         let diff = sum - a
         
         if addends.contains(diff) { //constant time lookup

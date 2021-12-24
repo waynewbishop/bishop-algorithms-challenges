@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    //reverse string order
+    //reverse string order - in place O(n)
    public func reverse() -> String {
         
          /*
