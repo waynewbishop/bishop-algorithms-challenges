@@ -9,7 +9,6 @@ import Foundation
 
 
 extension BSTree {
-
     
     /// For a given BST, returns the total value between a low and high value. O(n) - all cases
     /// - Parameters:

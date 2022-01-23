@@ -25,7 +25,7 @@ extension Array where Element: Comparable {
         
         //build bucket list
         for e in self {
-            if let evalue = e as? Int  {
+            if let evalue = e as? Int {  //cast comparable to Int
                 buckets[evalue] = evalue
             }
         }

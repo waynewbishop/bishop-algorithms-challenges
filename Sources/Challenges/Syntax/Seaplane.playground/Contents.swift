@@ -78,8 +78,3 @@ var myplane = Plane()
 myplane.landing()
 myplane.flying()
 
-
-
-
-
-

@@ -16,8 +16,13 @@ import Foundation
  */
 
 public func commonElement(_ matrix: [[Int]]) -> Int? {
-        
-    var buckets = Array<Table<Int>?>(repeatElement(nil, count: 15))
+    
+    //todo: it's the max number found in the series, not the
+    //number of elements..
+    let capacity = 8 //(matrix.count * matrix[0].count) + 1
+    
+    var buckets = Array<Table<Int>?>(repeatElement(nil, count: capacity))
+
     
     //trivial case
     guard matrix.count > 0, matrix[0].count > 0 else{

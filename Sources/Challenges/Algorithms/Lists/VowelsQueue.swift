@@ -29,7 +29,7 @@ func reverseVowelsQueue(_ sequence: String) -> String  {
     /*
      deQueue vowels from Queue - O(n). However the assumption
      is that the list of vowels will be smaller than iterating
-     through the entire proposed String.
+     through the entire proposed String. Best case constant time - O(1)
     */
     
     while queue.count > 0 {
