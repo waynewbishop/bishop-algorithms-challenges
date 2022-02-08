@@ -7,7 +7,7 @@
 import Foundation
     
 
-public class BSTree <T: Comparable>: Sequence, IteratorProtocol {
+public class BSTree <T: Comparable> {
 
     //represents the entire tree
     var root: BSNode<T>
@@ -132,30 +132,6 @@ public class BSTree <T: Comparable>: Sequence, IteratorProtocol {
 
    return false
 }
-
-
-    //MARK: Iterator protocol conformance
-
-    //iterates through each item
-    public func next() -> T? {
-        
-        print("iterator called..")
-        
-        if times == 0 {
-           iterator = self.treeToQueue()
-        }
-        
-        //assign next instance
-        if let item = iterator.deQueue() {
-            times += 1
-            return item
-        }
-        
-        //reset timer
-        times = 0
-        
-        return nil
-    }
     
     
     //helper function - transform model

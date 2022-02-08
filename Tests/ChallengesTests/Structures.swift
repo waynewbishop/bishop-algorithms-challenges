@@ -30,29 +30,10 @@ class Structures: XCTestCase {
         for s in numberList {
             tree.append(s)
         }
-                 
-        //1. tree fast-enumeration - O(n)
-        for t in tree {
-            print("item: \(t)")
-        }
         
-        //2. enumerate based on index - O(n)
-        for (i, t) in tree.enumerated() {
-            print("index \(i) holds: \(t)")
-        }
-        
-
         //3. find a specific value - O(n)
         XCTAssert(tree.contains(9), "test failed: no stack item found..")
-        
-        
-        let baseValue: Int = 2
-        
-        //4. for-each trailing closure - O(n)
-        tree.forEach { value in
-            print(value * baseValue) //capture scope from beyond the closure..
-        }
-        
+                
     }
     
     

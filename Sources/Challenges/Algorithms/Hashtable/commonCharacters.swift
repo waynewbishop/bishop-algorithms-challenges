@@ -14,8 +14,8 @@ import Foundation
 func commonCharacters(matrix: [[String]]) -> [String] {
         
     let capacity = 127
-    var seenChar: String = ""
-    var results = [String]()
+    var seenChar = Set<String>()
+    var results = Array<String>()
     
     var buckets = Array<Table<String>?>(repeatElement(nil, count: capacity))
 
@@ -27,18 +27,21 @@ func commonCharacters(matrix: [[String]]) -> [String] {
     //now iterate through each element in the sequence
     //note: assumes non-duplicate values per row
     for word in matrix {
+        
+        //reset all previous words
+        seenChar.removeAll()
                 
         for item in word {
             var asciiValue: Int = 0
             
-            //find ascii representation
+            //find ascii representation - O(1)
             for item in item.unicodeScalars {
                 asciiValue += Int(item.value)
             }
             
             //check for a collision
             if let table = buckets[asciiValue] {
-                if seenChar != item {
+                if !seenChar.contains(item) {
                     table.add(item)
                     
                     //determine count match
@@ -53,7 +56,7 @@ func commonCharacters(matrix: [[String]]) -> [String] {
                 buckets[asciiValue] = newTable
             }
             
-            seenChar = item
+            seenChar.insert(item)
         }
     } //end for
     
