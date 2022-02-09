@@ -22,6 +22,23 @@ class Algorithms: XCTestCase {
     var emptyTextList: Array<String> = []
 
     
+    
+    
+    func testWordle() {
+        
+        //start the game
+        let wordle = Wordle()
+        wordle.start()
+        
+        /*
+         note: to start game, call wordle.attempt("your selected string")
+         from the LLDB command line. the game will attempt 6 time to
+         match your word with it's chosen selection.
+         */
+        
+        _ = wordle.attempt("along")
+    }
+    
     func testPairNumbers() {
         
         //non-memoized version

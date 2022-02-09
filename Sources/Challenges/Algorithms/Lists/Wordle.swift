@@ -7,74 +7,89 @@
 
 import Foundation
 
-//character representation
-class Witem {
-    
-    var color: String?
-    var value: String?
-}
 
-
-//guess the correct word - 6 attempts
 class Wordle {
 
     var noAttempts: Int = 0
     var wordList = Set<String>()
-    var history = [[Witem]]()
-    var keyword: String?
-    
-    
+    var history = Array<String>()
+    var keyword: String = ""
+    var usedCharacters = Set<Character>()
+
     //initialize list
     init() {
         wordList.insert("flocks")
         wordList.insert("buyers")
         wordList.insert("items")
+        wordList.insert("apple")
+        wordList.insert("basis")
+        wordList.insert("since")
+        wordList.insert("after")
     }
 
     
-    //obtain word from the list - randomized
     func start() {
         
         if let word = wordList.popFirst() {
             keyword = word
-            wordList.insert(word) //should add word back to random position
+            wordList.insert(word) //random position
         }
     }
     
     
     //word attempt - 6 attempts
-    func attempt(with characters: String) -> Bool { //monitor some type of outcome
+    func attempt(_  characters: String) -> Bool {
         
         let guess = Array(characters)
         
-        guard guess.count > 5 else {
+        guard guess.count == 5 else {
             return false
         }
-
-        //convert to array sequence
-        var sequence: Array<String?> = Array(arrayLiteral: keyword)
         
-        //now that we have our word, we iterate through the model
-        //for how many attempts we have left
-        while noAttempts < 7  {
+        
+        //attempt and compare
+        if noAttempts < 7  {
             
             //check each character
-            for (index, value) in guess.enumerated() {
-                if let keyindex = sequence.firstIndex(of: String(value)) {
-                    if keyindex == index {
+            for (index, s) in guess.enumerated() {
+                
+                usedCharacters.insert(s)
+                
+                if let keyindex = keyword.firstIndex(of: s) {
+                    let i: Int = keyword.distance(from: keyword.startIndex, to: keyindex)
+                    
+                    if i == index {
                         //the char exists in that position.. green
+                        print("\(s) is green..")
+                        
+                        //todo: add functioanlity for winning the game
+                        //use set object so as to not double count
+                        //characters. 
+                        
                     }
                     else {
                         //the char exists in another position.. brown
+                        print("\(s) is brown..")
                     }
                 }
                 else {
                     //the char doesn't exist in the word.. grey
+                    print("\(s) is grey..")
                 }
             }
             
-            //todo: add resulting custom object to history collection.
-            noAttempts -= 1
+            //add to guess history..
+            history.append(String(guess))
+            
+            print("\n Attempts: \(history)") //print history list..
+            
+            
+            noAttempts += 1
+
+        }
+        
+        else {
+            print("all done. correct word was \(keyword)!")
         }
         
         return false
