@@ -11,7 +11,7 @@ import Foundation
 extension BSNode {
 
     /**
-     A post-order DFS traversal provides the basis for a topological sortm as it applies
+     A post-order DFS traversal provides the basis for a topological sort as it applies
      to a binary search tree.
      */
     

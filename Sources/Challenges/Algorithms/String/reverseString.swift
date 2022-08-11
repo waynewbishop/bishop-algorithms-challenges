@@ -11,7 +11,7 @@ import Foundation
 extension String {
     
     //reverse string order - in place O(n)
-   public func reverse() -> String {
+    public func reverse() -> String {
         
          /*
          notes: While this operation would normally be done with the
@@ -37,7 +37,7 @@ extension String {
             
             
         } //end while
-        
+    
         
         return String(characters)
         

@@ -22,7 +22,41 @@ class Algorithms: XCTestCase {
     var emptyTextList: Array<String> = []
 
     
+    func testRankUnsorted() {
+
+        //first example
+        let items_example1: Array<Int> = [1, 12, 4, 12]
+        print(rankUnsorted(items: items_example1))
+
+        
+        //second example
+        let items_example2: Array<Int> = [5, 3, 3, 8, 5]
+        print(rankUnsorted(items: items_example2))
+    }
+
     
+    func testDFSTraversal() {
+        
+        let  tree = BSTree<Int>()
+        
+        tree.append(8)
+        tree.append(4)
+        tree.append(20)
+        tree.append(56)
+        tree.append(806)
+        tree.append(2)
+        
+        //dfs traversal
+        //tree.root.traverse()
+        
+        //topological sort (post-order)
+        tree.root.traversePost()
+        
+        tree.root.traverse { Node in
+            
+        }
+        
+    }
     
     func testWordle() {
         

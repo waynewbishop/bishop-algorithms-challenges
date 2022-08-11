@@ -8,12 +8,10 @@
 import Foundation
 
 
-public class Stack<T>: Sequence, IteratorProtocol {
+public class Stack<T> {
         
    public var top: Node<T>
    private var counter: Int = 0
-   private var iterator: Node<T>?
-   private var times: Int = 0
 
     
   public init() {
@@ -22,7 +20,7 @@ public class Stack<T>: Sequence, IteratorProtocol {
     
 
     //returns all values
-    public var values: Array<Node<T>> {
+    public var elements: Array<Node<T>> {
 
         var results = Array<Node<T>>()
         
@@ -103,36 +101,6 @@ public class Stack<T>: Sequence, IteratorProtocol {
     }
 
 
-//MARK: Iterator protocol conformance
-    
-    //iterates through each item
-    public func next() -> T? {
-        
-        print("iterator called..")
-        
-        //check starting reference
-        if times == 0 {
-            iterator = top
-        }
-                
-        
-        //assign next instance - O(n)
-        if let item = iterator {
-            if let tvalue = item.tvalue {
-                iterator = item.next
-                times += 1
-                return tvalue
-            }
-        }
-        
-        //reset timer
-        times = 0
-        
-        return nil
-        
-    }
-    
-
     
 //MARK: Pop functions
     
@@ -180,8 +148,5 @@ public class Stack<T>: Sequence, IteratorProtocol {
         }
             
     }
-    
-    
-
 
 }

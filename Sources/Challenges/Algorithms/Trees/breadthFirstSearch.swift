@@ -26,8 +26,7 @@ extension BSNode {
               if let key = bitem.tvalue {
                   print("now traversing item: \(key)")
               }
-                  
-                  
+                                    
               //check left decendant
               if let left = bitem.left {
                   bsQueue.enQueue(left)

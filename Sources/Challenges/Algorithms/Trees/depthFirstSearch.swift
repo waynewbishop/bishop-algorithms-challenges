@@ -17,7 +17,7 @@ extension BSNode {
         if let left = self.left {
           left.traverse()
         }
-
+        
         //only called when reached bottom of tree...
         if let item = self.tvalue {
           print("key is \(item)")
@@ -27,6 +27,7 @@ extension BSNode {
         if let right = self.right {
           right.traverse()
         }
+        
 
       }
  

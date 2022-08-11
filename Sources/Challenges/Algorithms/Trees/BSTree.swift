@@ -11,13 +11,10 @@ public class BSTree <T: Comparable> {
 
     //represents the entire tree
     var root: BSNode<T>
-    var iterator: Queue<T>
-    var times: Int = 0
     
     
     public init() {
         root = BSNode<T>()
-        iterator = Queue<T>()
     }
 
     
@@ -29,6 +26,11 @@ public class BSTree <T: Comparable> {
       //check for the presence at the root node
       guard root.tvalue != nil else {
         root.tvalue = item
+          
+          /*
+          using a database? The insert goes here..
+          parentid record is null
+          */
         return
       }
         
@@ -50,6 +52,10 @@ public class BSTree <T: Comparable> {
 
           else {
             current.left = childToUse
+               /*
+               using a database? The insert goes here..
+               when inserting, also capture the "current" reference as the parentid.
+                */
             break
           }
         }
@@ -64,6 +70,10 @@ public class BSTree <T: Comparable> {
 
           else {
             current.right = childToUse
+              /*
+              using a database? The insert goes here..
+              when inserting, also capture the "current" reference as the parentid.
+              */
             break
           }
         }

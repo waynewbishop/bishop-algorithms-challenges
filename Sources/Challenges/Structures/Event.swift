@@ -17,14 +17,13 @@ public class Event {
     var end: Date
     var conflict: Bool = false
     
+    //todo: //build a collection of conflicts to accuratley  describe.
+    //perhaps a memory reference to the BSNode.?
+    
     init(_ title: String?, _ start: Date, _ end: Date) {
         
         self.title = title
         self.start = start
         self.end = end
     }
-        
 }
-
-
-

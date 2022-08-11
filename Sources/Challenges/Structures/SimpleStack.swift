@@ -16,16 +16,16 @@ import Foundation
 
 public struct SimpleStack <T> {
 
-      private var elements : [T] = [T]()
+    private var elements : [T] = [T]()
 
     public init() {
         //playground support
     }
     
-       //the number of items
-        var count: Int {
-            return elements.count
-        }
+   //the number of items
+    var count: Int {
+        return elements.count
+    }
       
     public mutating func push(_ element: T) {
           elements.append(element)

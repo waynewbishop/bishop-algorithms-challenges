@@ -20,7 +20,38 @@ import XCTest
 class Structures: XCTestCase {
 
     var numberList: Array<Int> = [8, 2, 10, 9, 1, 5]
+
     
+    func testDecisionTree() {
+        
+        let tree: Decision<Int> = Decision(of: "Scores")
+        
+        let x1: Int = 21
+        let x2: Int = 16
+        
+        
+        tree.newBranch(x1)
+        tree.newLeaf(branch: x1, action: .win, on: .right)
+
+        tree.newBranch(x2)
+        tree.newLeaf(branch: x2, action: .hold, on: .right)
+        tree.newLeaf(branch: x2, action: .hit, on: .left)
+        
+
+        
+        //how would this model hold boolean values?
+        
+        
+        //display the model
+        tree.printModel()
+
+        
+        //find answers to questions
+        if let answer = tree.findAnswer(for: 16) {
+            print("answer is: \(answer)")
+        }
+        
+    }
     
     //iterate through a linked list
     func testEnumerateBST() {
