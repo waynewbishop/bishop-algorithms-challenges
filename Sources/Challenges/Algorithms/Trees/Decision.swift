@@ -8,207 +8,149 @@
 import Foundation
 
 
-//player actions (that effect the card table)
-enum Action: Codable {
-    case start, new, deal, hit, hold, fold, win
-}
 
-//position of leaf nodes related to parents
+//leaf positions
 enum Position: Codable {
     case left, right
 }
 
 
-//basic binary structure
-public class Feature <T: Comparable> {
 
-      var tvalue: T?
-      var left: Feature<T>?
-      var right: Feature<T>?
-      var action: Action?
-
-      public init() {
-          
-      }
+class Branch <T: Comparable> {
     
-    
-    //execute breadth-first search
-    public func BFSTraverse() -> () {
-                    
-      let bsQueue = Queue<Feature<T>>()
-        
-      //queue a starting node
-      bsQueue.enQueue(self)
-                
-      while bsQueue.peek() != nil {
-            
-        //traverse the next queued node
-        if let bitem = bsQueue.deQueue() {
-                                
-            if let tvalue = bitem.tvalue {
-                print("now traversing node: \(tvalue)")
-            }
-            
-            if let leaf = bitem.action {
-                print("now traversing leaf:\(leaf)")
-            }
-                                  
-            //check left decendant
-            if let left = bitem.left {
-                bsQueue.enQueue(left)
-            }
-                
-            //check right decendant
-            if let right = bitem.right {
-                bsQueue.enQueue(right)
-            }
-            
-        }
-            
-      } //end while
-        
-        print("bfs traversal complete..")
-        
-    }
-    
-    
-   func DFSTraverse(_ formula: (Feature<T>)-> ()) {
-
-          if let left = self.left {
-            left.DFSTraverse(formula)
-          }
-            
-          formula(self)
-            
-          if let right = self.right {
-            right.DFSTraverse(formula)
-          }
-    }
-    
+    var attribute: T?
+    var left: Branch<T>?
+    var right: Branch<T>?
+    var action: Any?
 }
 
 
-public class Decision <T: Comparable> {
-    
-    private var root: Feature<T> = Feature()
-    private var description: String?
 
-    
-    init(of description: String) {
-        self.description = description
-    }
-
-    
-    func printModel() {
-        self.root.BFSTraverse()
-    }
-    
-    
-    //new decision point - O(log n)
-    func newBranch(_ item: T) {
+class Decision <T: Comparable> {
         
-                
-        //check for the presence at the root node
-        guard root.tvalue != nil else {
-          root.tvalue = item
-          return
+    var root: Branch<T>
+    var branch: Branch<T> = Branch()
+    
+    init() {
+        self.root = Branch()
+    }
+
+    
+    //create a new branch
+    @discardableResult func createBranch(with attribute: T) -> Branch<T>? {
+
+        guard root.attribute != nil else {
+            root.attribute = attribute
+            return root
         }
         
         
-        var current: Feature<T> = root
+        var current: Branch<T> = root
         
 
-        let childToUse = Feature<T>()
-        childToUse.tvalue = item
+        let childToUse = Branch<T>()
+        childToUse.attribute = attribute
         
 
-        //determine its positioning based on the parent value
-        while let tvalue = current.tvalue {
+        while let tvalue = current.attribute {
            
            //check the left side
-          if item < tvalue {
+          if attribute < tvalue {
 
             if let lnode = current.left {
               current = lnode
+              continue
             }
 
             else {
               current.left = childToUse
+                
+                //define return value
+                if let left = current.left {
+                    branch = left
+                }
+                
               break
             }
           }
 
           
          //check right side
-          if item > tvalue {
+          if attribute > tvalue {
 
             if let rnode = current.right {
               current = rnode
+              continue
             }
 
             else {
               current.right = childToUse
+            
+                //define return value
+                if let right = current.right {
+                    branch = right
+                }
+                
               break
             }
           }
         }
-    }
-    
-    
-    //find and append new leaf - O(n)
-    func newLeaf(branch: T, action: Action, on position: Position) {
         
-        let leafToUse: Feature<T> = Feature()
-        leafToUse.action = action
+        return branch
+    }
+
     
-        //place node beneath specific parent
-        root.DFSTraverse { feature in
+
+    @discardableResult func createLeaf(for branch: Branch<T>, with action: Any, position: Position) -> Bool {
+        
+        let childToUse: Branch<T> = Branch()
+        childToUse.action = action
+        
+        
+        switch position {
             
-            if let tvalue = feature.tvalue {
-                if tvalue == branch {
-                    
-                    //add at new position
-                    switch position {
-                        
-                    case .left:
-                        //position on left
-                        feature.left = leafToUse
-                        
-                    case .right:
-                        //position on right
-                        feature.right = leafToUse
-                    }
-
-                }
+        case .right:
+            if branch.right == nil {
+                branch.right = childToUse
+                return true
             }
-        } //end traverse
+            else {
+                return false
+            }
+         
+        case .left:
+            if branch.left == nil {
+                branch.left = childToUse
+                return true
+            }
+            else {
+                return false
+            }
+        }        
         
     }
+    
 
     
-    
-    //obtain answer to question
-    func findAnswer(for question: T) -> Action? {
+    func findAnswer(for question: T) -> Any? {
         
         //trival case
-        guard root.tvalue != nil else {
+        guard root.attribute != nil else {
             return nil
         }
         
-        var current: Feature<T>? = self.root
+        var current: Branch<T>? = self.root
         
         
-        while let feature = current {
-                        
+        while let node = current {
             
             //check right side
-            if let tvalue = feature.tvalue {
-                if question >= tvalue {
-                    
-                    //check for right side child
-                    if let rnode = feature.right {
+            if let attribute = node.attribute {
+                                
+                if question >= attribute {
+                    if let rnode = node.right {
                         
-                        if rnode.tvalue != nil {
+                        if rnode.attribute != nil {
                             current = rnode
                             continue
                         }
@@ -222,13 +164,12 @@ public class Decision <T: Comparable> {
             
             
             //check left side
-            if let tvalue = feature.tvalue {
-                if question < tvalue {
-                    
-                    //check for right side child
-                    if let lnode = feature.left {
+            if let attribute = node.attribute {
+                
+                if question < attribute {
+                    if let lnode = node.left {
                         
-                        if lnode.tvalue != nil {
+                        if lnode.attribute != nil {
                             current = lnode
                             continue
                         }
@@ -244,7 +185,4 @@ public class Decision <T: Comparable> {
         
         return nil
     }
-    
 }
-
-

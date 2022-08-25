@@ -21,37 +21,47 @@ class Structures: XCTestCase {
 
     var numberList: Array<Int> = [8, 2, 10, 9, 1, 5]
 
-    
-    func testDecisionTree() {
-        
-        let tree: Decision<Int> = Decision(of: "Scores")
-        
-        let x1: Int = 21
-        let x2: Int = 16
-        
-        
-        tree.newBranch(x1)
-        tree.newLeaf(branch: x1, action: .win, on: .right)
 
-        tree.newBranch(x2)
-        tree.newLeaf(branch: x2, action: .hold, on: .right)
-        tree.newLeaf(branch: x2, action: .hit, on: .left)
-        
-
-        
-        //how would this model hold boolean values?
+    func testDecisionModel() {
         
         
-        //display the model
-        tree.printModel()
-
-        
-        //find answers to questions
-        if let answer = tree.findAnswer(for: 16) {
-            print("answer is: \(answer)")
+        //define my own leaf criteria..
+        enum Action: Codable {
+            case start, new, deal, hit, hold, fold, win, bust
         }
         
+        
+        let tree: Decision<Int> = Decision()
+
+        //root node
+        tree.createBranch(with: 21)
+        
+        
+        if let root_left = tree.createBranch(with: 16) {
+            tree.createLeaf(for: root_left, with: Action.hold, position: .right)
+            tree.createLeaf(for: root_left, with: Action.hit, position: .left)
+        }
+        
+        if let root_right = tree.createBranch(with: 22) {
+            tree.createLeaf(for: root_right, with: Action.bust, position: .right)
+            tree.createLeaf(for: root_right, with: Action.win, position: .left)
+        }
+
+        
+        //test equal values
+        print(tree.findAnswer(for: 21)!)
+        print(tree.findAnswer(for: 16)!)
+        print(tree.findAnswer(for: 22)!)
+
+        
+        //test range values
+        print(tree.findAnswer(for: 12)!)
+        print(tree.findAnswer(for: 17)!)
+        print(tree.findAnswer(for: 25)!)
+                    
     }
+
+
     
     //iterate through a linked list
     func testEnumerateBST() {
