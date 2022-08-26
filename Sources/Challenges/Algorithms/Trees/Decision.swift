@@ -25,7 +25,6 @@ class Branch <T: Comparable> {
 }
 
 
-
 class Decision <T: Comparable> {
         
     var root: Branch<T>
@@ -160,11 +159,7 @@ class Decision <T: Comparable> {
                         }
                     }
                 }
-            }
-            
-            
-            //check left side
-            if let attribute = node.attribute {
+
                 
                 if question < attribute {
                     if let lnode = node.left {
