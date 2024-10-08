@@ -16,7 +16,7 @@ The project includes solutions to popular coding challenges such as:
 ## Getting Started
 
 This project is optimized for **Swift 5.0** or later. The repository is organized as follows:
-+ Challenges - Contains individual Swift files for each coding challenge
++ Sources/Challenges - Contains individual Swift files for each coding challenge
 + Tests - Unit tests to verify the correctness of challenge solutions
 
 ## Usage
